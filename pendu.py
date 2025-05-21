@@ -1,7 +1,7 @@
 print("welcome")
 
 def supprimer_accents(mot): #Fonction pour retirer les accents
-    mot_sans = "" #on va ici stocker le mot modifié
+    mot_sans_accents_1 = "" #on va ici stocker le mot modifié
     remplacement = {
         'é': 'e', 'è': 'e', 'ê': 'e', 'ë': 'e',
         'à': 'a', 'â': 'a', 'ä': 'a',
@@ -12,21 +12,21 @@ def supprimer_accents(mot): #Fonction pour retirer les accents
       } #on simplifie chaque accent
     for lettre in mot: #on parcourt chaque lettre du mot choisi
         if lettre in remplacement:
-            mot_sans += remplacement[lettre] #on remplace la lettre accentué
+            mot_sans_accents_1 += remplacement[lettre] #on remplace la lettre accentué
         else:
-            mot_sans += lettre
-    return mot_sans #on retourne le même mot sans accents
+            mot_sans_accents_1 += lettre
+    return mot_sans_accents_1 #on retourne le même mot sans accents
 
 def charger_mots_pendu():
     fichier = open("mots_pendu.txt", "r") #ouvrir le fichier
     mots = fichier.read().splitlines() #lit les lignes sans le \n lut par python
     fichier.close()
-
-    mots_sans_accents = []
-
+    mots_sans_accents_2 = []
     for mot in mots:
-        mots_sans_accents.append(supprimer_accents(mot))
+        mots_sans_accents_2.append(supprimer_accents(mot))
+    return mots_sans_accents_2
 
-    return mots_sans_accents
+import random
 
-print(charger_mots_pendu())
+def choisir_mot(mots):
+    return random.choice(mots)

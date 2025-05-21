@@ -11,7 +11,7 @@ pendu.py : le script Python
 mots_pendu.txt : le fichier contenant les mots par défaut
 
 # Lancer le jeu
-Avoir python dans sa dernière version. Telecharger le dossier pendu.py , vous pouvez également importer votre fichier de mots en format .txt, ou alors celui proposé ici.
+Avoir python dans sa dernière version. Télécharger le dossier pendu.py , vous pouvez également importer votre fichier de mots en format .txt ou alors celui proposé ici.
 Chaque ligne doit contenir 1 mot. Les mots ne doivent pas contenir de caracteres speciaux autre que des accents.
 
 # Auteur 

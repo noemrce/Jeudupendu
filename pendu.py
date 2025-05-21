@@ -1,6 +1,6 @@
 print("welcome")
 
-def suprrimer_accents(mot): #Fonction pour retirer les accents
+def supprimer_accents(mot): #Fonction pour retirer les accents
     mot_sans = "" #on va ici stocker le mot modifié
     remplacement = {
         'é': 'e', 'è': 'e', 'ê': 'e', 'ë': 'e',
@@ -17,4 +17,16 @@ def suprrimer_accents(mot): #Fonction pour retirer les accents
             mot_sans += lettre
     return mot_sans #on retourne le même mot sans accents
 
-print(suprrimer_accents("éàîôùç")) #test de la fonction
+def charger_mots_pendu():
+    fichier = open("mots_pendu.txt", "r") #ouvrir le fichier
+    mots = fichier.read().splitlines() #lit les lignes sans le \n lut par python
+    fichier.close()
+
+    mots_sans_accents = []
+
+    for mot in mots:
+        mots_sans_accents.append(supprimer_accents(mot))
+
+    return mots_sans_accents
+
+print(charger_mots_pendu())

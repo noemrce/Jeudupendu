@@ -18,7 +18,7 @@ def supprimer_accents(mot): #Fonction pour retirer les accents
 import os #pour verifier si un fichier existe
 
 def charger_mots_pendu():
-    nom_fichier = input("Entrez le nom de votre fichier (sinon mots_pendu.txt sera utilisé) : ")
+    nom_fichier = input("Entrez le nom de votre fichier (sinon mots_pendu.txt sera utilisé/entrée) : ")
 
     if nom_fichier =="":
         nom_fichier = "mots_pendu.txt"
@@ -79,6 +79,9 @@ def jouer():
 
     print ("vous avez perdu. Le mot à deviner était :", mot_secret)
 
-jouer()
-
-input("Appuyez sur Entrée pour quitter")#Permet de run depuis mon folder
+while True:
+    jouer()
+    rejouer = input("Voulez vous rejouer ? (oui/non) :").lower() #on prend les majuscules
+    if rejouer != "oui":
+        print ("A bientot !")
+        break # on sort de la boucle le jeu s'arrete

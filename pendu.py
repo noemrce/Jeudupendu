@@ -15,10 +15,25 @@ def supprimer_accents(mot): #Fonction pour retirer les accents
             mot_sans_accents_1 += lettre
     return mot_sans_accents_1 #on retourne le même mot sans accents
 
+import os #pour verifier si un fichier existe
+
 def charger_mots_pendu():
+    nom_fichier = input("Entrez le nom de votre fichier (sinon mots_pendu.txt sera utilisé) : ")
+
+    if nom_fichier =="":
+        nom_fichier = "mots_pendu.txt"
+
+    while not os.path.isfile(nom_fichier): #tant que le fichier existe pas
+        print("Fichier non trouvé. Réessayez.")
+        nom_fichier = input("Entrez le nom de votre fichier (sinon mots_pendu.txt sera utilisé) : ")
+        if nom_fichier == "":
+            nom_fichier = "mots_pendu.txt"
+
+
     fichier = open("mots_pendu.txt", "r") #ouvrir le fichier
     mots = fichier.read().splitlines() #lit les lignes sans le \n lut par python
     fichier.close()
+
     mots_sans_accents_2 = []
     for mot in mots:
         mots_sans_accents_2.append(supprimer_accents(mot))

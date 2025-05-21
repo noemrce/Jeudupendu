@@ -1,3 +1,6 @@
+import os #pour verifier si un fichier existe
+import random
+
 def supprimer_accents(mot): #Fonction pour retirer les accents
     mot_sans_accents_1 = "" #on va ici stocker le mot modifié
     remplacement = {
@@ -14,8 +17,6 @@ def supprimer_accents(mot): #Fonction pour retirer les accents
         else:
             mot_sans_accents_1 += lettre
     return mot_sans_accents_1 #on retourne le même mot sans accents
-
-import os #pour verifier si un fichier existe
 
 def charger_mots_pendu():
     nom_fichier = input("Entrez le nom de votre fichier (sinon mots_pendu.txt sera utilisé/entrée) : ")
@@ -38,8 +39,6 @@ def charger_mots_pendu():
     for mot in mots:
         mots_sans_accents_2.append(supprimer_accents(mot))
     return mots_sans_accents_2
-
-import random
 
 def choisir_mot(mots):
     return random.choice(mots)
